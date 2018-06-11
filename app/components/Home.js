@@ -1,21 +1,24 @@
 // @flow
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import styles from './Home.css';
+import { Composed } from 'render-props-compose';
+import RoutePushRP from '../containers/RoutePushRP';
+
+import HomeStyles from './HomeStyles';
+import HomeView from './HomeView';
 
 type Props = {};
 
 export default class Home extends Component<Props> {
   props: Props;
-
   render() {
     return (
-      <div>
-        <div className={styles.container} data-tid="container">
-          <h2>Home</h2>
-          <Link to="/counter">to Counter</Link>
-        </div>
-      </div>
+      <Composed
+        renderPropName="render"
+        components={[RoutePushRP, HomeStyles]}
+        render={(rpPush, rpStyles) => (
+          <HomeView {...rpStyles} {...this.props} handleClick={rpPush.push} />
+        )}
+      />
     );
   }
 }

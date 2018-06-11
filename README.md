@@ -1,4 +1,6 @@
-# electron-react-boilerplate
+# electron-react-boilerplate-with-material-ui
+
+See below for the origin, this just adds some material-ui v1 style and example button on the home page.
 
 ### A Boilerplate for Scalable Cross-Platform Desktop Apps
 
@@ -98,7 +100,7 @@ DEBUG_PROD=true npm run package
 
 ## How to add modules to the project
 
-You will need to add other modules to this boilerplate, depending on the requirements of your project. For example, you may want to add [node-postgres](https://github.com/brianc/node-postgres) to communicate with PostgreSQL database, or 
+You will need to add other modules to this boilerplate, depending on the requirements of your project. For example, you may want to add [node-postgres](https://github.com/brianc/node-postgres) to communicate with PostgreSQL database, or
 [material-ui](http://www.material-ui.com/) to reuse react UI components.
 
 ⚠️ Please read the following section before installing any dependencies ⚠️

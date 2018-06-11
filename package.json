@@ -1,6 +1,10 @@
 {
-  "name": "electron-react-boilerplate",
-  "productName": "ElectronReact",
+  "name": "electron-react-boilerplate-with-material-ui",
+  "productName": "ElectronReactwMUI",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HyperSprite/electron-react-boilerplate-with-material-ui.git"
+  },
   "version": "0.13.3",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "scripts": {
@@ -200,6 +204,7 @@
     "webpack-merge": "^4.1.2"
   },
   "dependencies": {
+    "@material-ui/core": "^1.2.1",
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
     "font-awesome": "^4.7.0",
@@ -213,6 +218,7 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
+    "render-props-compose": "^0.2.3",
     "source-map-support": "^0.5.6"
   },
   "devEngines": {
