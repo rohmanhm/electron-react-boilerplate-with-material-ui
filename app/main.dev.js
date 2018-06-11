@@ -12,6 +12,7 @@
  */
 import { app, BrowserWindow } from 'electron';
 import MenuBuilder from './menu';
+import config from './config.json';
 
 let mainWindow = null;
 
@@ -62,8 +63,8 @@ app.on('ready', async () => {
 
   mainWindow = new BrowserWindow({
     show: false,
-    width: 1024,
-    height: 728
+    width: config.mainWidth,
+    height: config.mainHeight
   });
 
   mainWindow.loadURL(`file://${__dirname}/app.html`);

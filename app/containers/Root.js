@@ -25,6 +25,19 @@ const theme = createMuiTheme({
       main: grey[500],
       dark: grey[700]
     }
+  },
+  zIndex: {
+    drawer: 1099
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        margin: 6
+      },
+      containedPrimary: {
+        color: '#ffffff'
+      }
+    }
   }
 });
 

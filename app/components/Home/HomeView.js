@@ -1,5 +1,5 @@
 import React from 'react';
-import { func as ptFunc, object as ptObject } from 'prop-types';
+import { func, object } from 'prop-types';
 import Button from '@material-ui/core/Button';
 
 const HomeView = props => (
@@ -8,16 +8,24 @@ const HomeView = props => (
     <Button
       color="primary"
       variant="contained"
+      onClick={() => props.handleClick('/users')}
+    >
+      Users
+    </Button>
+    <Button
+      color="secondary"
+      variant="contained"
       onClick={() => props.handleClick('/counter')}
     >
-      to Counter
+      Counter
     </Button>
   </div>
 );
 
 HomeView.propTypes = {
-  classes: ptObject.isRequired,
-  handleClick: ptFunc.isRequired
+  // eslint-disable-next-line
+  classes: object.isRequired,
+  handleClick: func.isRequired
 };
 
 export default HomeView;
