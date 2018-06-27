@@ -1,6 +1,7 @@
 {
   "appTitle": "Electron React Material-ui",
-  "mainWidth": 1400,
+  "appName": "electron-testing",
+  "mainWidth": 1700,
   "mainHeight": 768,
   "mainRoutes": [
     "Home",

@@ -12,6 +12,7 @@
 [include]
 
 [libs]
+<PROJECT_ROOT>/flow-typed/interface.js
 
 [options]
 esproposal.class_static_fields=enable

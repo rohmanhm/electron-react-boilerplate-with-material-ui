@@ -1,13 +1,13 @@
 // @flow
-import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Users from '../components/Users';
+import * as UserActions from '../actions/users';
 
-type Props = {};
-
-export default class HomePage extends Component<Props> {
-  props: Props;
-
-  render() {
-    return <Users />;
-  }
+function mapStateToProps(state) {
+  return {
+    users: state.users,
+    trash: state.page.trash
+  };
 }
+
+export default connect(mapStateToProps, UserActions)(Users);

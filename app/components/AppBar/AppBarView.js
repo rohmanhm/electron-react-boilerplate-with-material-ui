@@ -8,6 +8,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 
+import FetchingOn from '../FetchingOn';
 import DrawerList from './DrawerList';
 
 const AppBarView = props => {
@@ -31,6 +32,7 @@ const AppBarView = props => {
           <Typography variant="title" color="inherit" noWrap>
             {title}
           </Typography>
+          <FetchingOn />
         </Toolbar>
       </AppBar>
       <Hidden mdUp>

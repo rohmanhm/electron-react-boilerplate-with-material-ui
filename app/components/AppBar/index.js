@@ -12,7 +12,6 @@ type Props = {};
 export default class Home extends React.Component<Props> {
   props: Props;
   render() {
-    console.dir(this.props);
     return (
       <Composed
         renderPropName="render"

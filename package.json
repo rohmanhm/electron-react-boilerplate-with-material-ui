@@ -3,8 +3,16 @@
   "productName": "ElectronReactwMUI",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chentsulin/electron-react-boilerplate.git"
+    "url": "git+https://github.com/HyperSprite/electron-react-boilerplate-with-material-ui.git"
   },
+  "author": {
+    "name": "Christopher Dunavan"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HyperSprite/electron-react-boilerplate-with-material-ui/issues"
+  },
+  "homepage": "https://github.com/HyperSprite/electron-react-boilerplate-with-material-ui#readme",
   "version": "0.13.3",
   "description": "Electron application boilerplate based on React, React Router, Webpack, React Hot Loader for rapid application development",
   "scripts": {
@@ -86,15 +94,6 @@
       "output": "release"
     }
   },
-  "author": {
-    "name": "C. T. Lin",
-    "email": "chentsulin@gmail.com",
-    "url": "https://github.com/chentsulin"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/chentsulin/electron-react-boilerplate/issues"
-  },
   "keywords": [
     "electron",
     "boilerplate",
@@ -106,7 +105,6 @@
     "hot",
     "reload"
   ],
-  "homepage": "https://github.com/chentsulin/electron-react-boilerplate#readme",
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/internals/mocks/fileMock.js",
@@ -135,6 +133,7 @@
     "babel-plugin-dev-expression": "^0.2.1",
     "babel-plugin-flow-runtime": "^0.17.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
@@ -160,7 +159,7 @@
     "eslint-formatter-pretty": "^1.3.0",
     "eslint-import-resolver-webpack": "^0.10.0",
     "eslint-plugin-compat": "^2.2.0",
-    "eslint-plugin-flowtype": "^2.47.1",
+    "eslint-plugin-flowtype": "^2.49.3",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jest": "^21.15.2",
     "eslint-plugin-jsx-a11y": "6.0.3",
@@ -203,12 +202,16 @@
     "@hypersprite/toggle-state-rp": "^1.0.7",
     "@material-ui/core": "^1.2.1",
     "@material-ui/icons": "^1.1.0",
+    "date-fns": "^1.29.0",
     "devtron": "^1.4.0",
     "electron-debug": "^1.5.0",
+    "final-form": "^4.8.2",
     "font-awesome": "^4.7.0",
     "history": "^4.7.2",
+    "mui-datatables": "^2.0.0-beta-8",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-final-form": "^3.6.2",
     "react-hot-loader": "^4.2.0",
     "react-inspector": "^2.3.0",
     "react-redux": "^5.0.7",
@@ -217,8 +220,12 @@
     "react-router-redux": "^5.0.0-alpha.6",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0",
+    "reflect-metadata": "^0.1.12",
     "render-props-compose": "^0.2.3",
-    "source-map-support": "^0.5.6"
+    "shelljs": "^0.8.2",
+    "source-map-support": "^0.5.6",
+    "sql.js": "^0.5.0",
+    "typeorm": "^0.2.7"
   },
   "devEngines": {
     "node": ">=7.x",

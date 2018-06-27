@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import * as React from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Counter.css';
 
@@ -11,7 +11,7 @@ type Props = {
   counter: number
 };
 
-export default class Counter extends Component<Props> {
+export default class Counter extends React.Component<Props> {
   props: Props;
 
   render() {

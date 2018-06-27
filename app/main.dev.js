@@ -10,9 +10,64 @@
  *
  * @flow
  */
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import 'reflect-metadata'; // for TypeORM decorators
 import MenuBuilder from './menu';
+import db from './db';
 import config from './config.json';
+
+/**
+ * This is an IPC connection between the db and User actions
+ */
+
+ipcMain.on('USER', (event, ipcType, inputData) => {
+  console.log('ipcMain', ipcType);
+  switch (ipcType) {
+    case 'USERS_FETCH':
+      db
+        .userFindAll(inputData)
+        .then(data => event.sender.send('USERS_FETCH', { type: ipcType, data }))
+        .catch(err =>
+          event.sender.send('PAGE', { type: 'USER_ERROR', error: err })
+        );
+      break;
+    case 'USER_ADD':
+      db
+        .userCreate(inputData)
+        .then(data => {
+          console.dir(data);
+          return event.sender.send('USER_ADD', { type: ipcType, data });
+        })
+        .catch(err =>
+          event.sender.send('PAGE', { type: 'USER_ERROR', error: err })
+        );
+      break;
+    case 'USER_UPDATE':
+    case 'USER_DELETE':
+      console.log('ipcMain USER_UPDATE', ipcType);
+      db
+        .userUpdate(inputData)
+        .then(data => {
+          console.log('data', data);
+          return event.sender.send(ipcType, { type: ipcType, data });
+        })
+
+        .catch(err =>
+          event.sender.send('PAGE', { type: 'USER_ERROR', error: err })
+        );
+      break;
+    default:
+      event.sender.send('PAGE', {
+        type: 'USER_ERROR',
+        error: 'ipcMain USER - Missed case'
+      });
+      return null;
+  }
+});
+
+/**
+ * Start Electron stuff...
+ */
 
 let mainWindow = null;
 
@@ -77,6 +132,26 @@ app.on('ready', async () => {
     }
     mainWindow.show();
     mainWindow.focus();
+
+    // db.userCreate({
+    //     name: 'test',
+    //     email: 'test@email.com',
+    //     isAdmin: false,
+    // })
+    //   .then(newUser => console.log('newUser', newUser))
+    //   .catch(err => console.log(err));
+    //
+    // db.userFindById(20)
+    // .then(foundUser => console.log('foundUser', foundUser))
+    // .catch(err => console.log(err));
+    //
+    // db.userFindByIdAndUpdate({id: 23, email: 'email2323@email.com' })
+    // .then(foundUser => console.log('foundUser', foundUser))
+    // .catch(err => console.log(err));
+    //
+    // db.userFindAll()
+    // .then(foundAllUsers => console.log('foundAllUsers', foundAllUsers))
+    // .catch(err => console.log(err));
   });
 
   mainWindow.on('closed', () => {

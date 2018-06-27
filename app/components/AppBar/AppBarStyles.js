@@ -13,6 +13,9 @@ const styles = theme => ({
     position: 'absolute',
     zIndex: 1300
   },
+  flex: {
+    flex: 1
+  },
   toolBar: {
     color: theme.palette.background.paper
   },

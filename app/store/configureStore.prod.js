@@ -5,12 +5,13 @@ import { createHashHistory } from 'history';
 import { routerMiddleware } from 'react-router-redux';
 import rootReducer from '../reducers';
 import type { counterStateType } from '../reducers/counter';
+import type { userStateType } from '../reducers/users';
 
 const history = createHashHistory();
 const router = routerMiddleware(history);
 const enhancer = applyMiddleware(thunk, router);
 
-function configureStore(initialState?: counterStateType) {
+function configureStore(initialState?: counterStateType | userStateType) {
   return createStore(rootReducer, initialState, enhancer);
 }
 

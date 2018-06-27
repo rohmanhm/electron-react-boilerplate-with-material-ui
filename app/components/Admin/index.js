@@ -12,7 +12,6 @@ type Props = {};
 export default class Admin extends React.Component<Props> {
   props: Props;
   render() {
-    console.dir(this.props);
     return (
       <Composed
         renderPropName="render"
