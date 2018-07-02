@@ -1,12 +1,11 @@
-// import "reflect-metadata";
 import { app } from 'electron';
-import { makeDirs } from './app/lib';
-import config from './app/config.json';
+import { makeDirs } from './lib';
+import config from './config.json';
 import User from './entity/users';
 
 /**
  * Configuration for
- * SQL.js - https://github.com/kripken/sql.js
+ * SQLite3 - https://github.com/mapbox/node-sqlite3
  * TypeORM - https://www.npmjs.com/package/typeorm
  */
 const userHome = app.getPath('home');
@@ -16,10 +15,11 @@ const dbPath = `${appHome}${dbFile}`;
 // make dirs in case they don't exist
 makeDirs(appHome, dbFile);
 
+console.log('paths ', dbPath);
+
 export default {
-  type: 'sqljs',
-  database: dbFile,
-  location: dbPath,
+  type: 'sqlite',
+  database: dbPath,
   synchronize: true,
   autoSave: true,
   logging: true,

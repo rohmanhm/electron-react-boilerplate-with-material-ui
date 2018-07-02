@@ -1,12 +1,15 @@
 /* eslint global-require: 0, flowtype-errors/show-errors: 0 */
 import { createConnection } from 'typeorm';
-import User from '../entity/users';
+import ormconfig from './ormconfig';
+import User from './entity/users';
+
+// const connectionOptions = getConnectionOptions(ormconfig);
 
 const db = {};
 
 console.log('db.js __dirname', __dirname);
 
-createConnection()
+createConnection(ormconfig)
   .then(async connection => {
     // const userRepository = await connection.getRepository(User);
     db.userFindAll = async options => {
@@ -42,45 +45,6 @@ createConnection()
     console.log('TypeORM connection error: ', error);
     return null;
   });
-
-// db.conenctionUser =  async () => {
-//   let result;
-//   await createConnection()
-//     .then(async connection => {
-//       result = await connection.getRepository(User);
-//
-//     })
-//     .catch(error => console.log(error));
-//     return result;
-// };
-
-// const userRepository = db.conenctionUser();
-
-// db.userCreate = async (user) => {
-//   // return async connection => {
-//       // const userRepository = await connection.getRepository(User);
-//       const result = await db.conenctionUser().save(user);
-//       return result;
-// }
-
-// db.userFindAll = async () => {
-//   console.log('connection userFindAll');
-//   const result = await userRepository.find();
-//   console.log('connection userFindAll 2');
-//   return result;
-// }
-
-// db.userFindAll = async () => {
-//   let result;
-//   await createConnection()
-//     .then(async connection => {
-//       const userRepository = await connection.getRepository(User);
-//       result = await userRepository.find();
-//       return null;
-//     })
-//     .catch(error => console.log(error));
-//     return result;
-// };
 
 db.userFindById = async userId => {
   let result;
