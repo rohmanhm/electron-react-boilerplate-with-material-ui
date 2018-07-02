@@ -20,9 +20,13 @@ export default merge.smart(baseConfig, {
 
   entry: './app/main.dev',
 
+  // output: {
+  //   path: __dirname,
+  //   filename: './app/main.prod.js'
+  // },
+
   output: {
-    path: __dirname,
-    filename: './app/main.prod.js'
+    filename: './main.prod.js'
   },
 
   plugins: [

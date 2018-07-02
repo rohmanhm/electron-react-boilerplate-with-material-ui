@@ -1,5 +1,10 @@
 // @flow
 import { app, Menu, shell, BrowserWindow } from 'electron';
+import settings from 'electron-settings';
+import config from './config.json';
+
+const userHome = app.getPath('home');
+const appHome = `${userHome}/${config.appName}/null`;
 
 export default class MenuBuilder {
   mainWindow: BrowserWindow;
@@ -16,9 +21,10 @@ export default class MenuBuilder {
       this.setupDevelopmentEnvironment();
     }
 
-    const template = process.platform === 'darwin'
-      ? this.buildDarwinTemplate()
-      : this.buildDefaultTemplate();
+    const template =
+      process.platform === 'darwin'
+        ? this.buildDarwinTemplate()
+        : this.buildDefaultTemplate();
 
     const menu = Menu.buildFromTemplate(template);
     Menu.setApplicationMenu(menu);
@@ -145,6 +151,18 @@ export default class MenuBuilder {
       label: 'Help',
       submenu: [
         {
+          label: 'Show Files',
+          click() {
+            shell.showItemInFolder(`${userHome}/${config.appName}/`);
+          }
+        },
+        {
+          label: 'Show Settings File',
+          click() {
+            shell.showItemInFolder(settings.file());
+          }
+        },
+        {
           label: 'Learn More',
           click() {
             shell.openExternal('http://electron.atom.io');
@@ -241,6 +259,18 @@ export default class MenuBuilder {
       {
         label: 'Help',
         submenu: [
+          {
+            label: 'Show Files',
+            click() {
+              shell.showItemInFolder(appHome);
+            }
+          },
+          {
+            label: 'Show Settings File',
+            click() {
+              shell.showItemInFolder(settings.file());
+            }
+          },
           {
             label: 'Learn More',
             click() {

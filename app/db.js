@@ -4,6 +4,8 @@ import User from '../entity/users';
 
 const db = {};
 
+console.log('db.js __dirname', __dirname);
+
 createConnection()
   .then(async connection => {
     // const userRepository = await connection.getRepository(User);
