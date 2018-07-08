@@ -32,7 +32,7 @@
     "package-all": "npm run build && build -mwl",
     "package-linux": "npm run build && build --linux",
     "package-win": "npm run build && build --win --x64",
-    "postinstall": "node -r babel-register internals/scripts/CheckNativeDep.js && npm run flow-typed && npm run build-dll && electron-builder install-app-deps && node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
+    "nopepostinstall": "node -r babel-register internals/scripts/CheckNativeDep.js && npm run flow-typed && npm run build-dll && electron-builder install-app-deps && node node_modules/fbjs-scripts/node/check-dev-engines.js package.json",
     "postlint-fix": "prettier --ignore-path .eslintignore --single-quote --write '**/*.js'",
     "precommit": "lint-staged",
     "prestart": "npm run build",
@@ -42,7 +42,8 @@
     "test": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js",
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
-    "test-watch": "npm test -- --watch"
+    "test-watch": "npm test -- --watch",
+    "clean:ts": "rm -rf app/actions/**/*.jsx app/actions/**/*.js app/reducers/**/*.jsx app/reducers/**/*.js app/store/**/*.jsx app/store/**/*.js app/components/**/*.jsx app/components/**/*.js app/containers/**/*.jsx app/containers/**/*.js"
   },
   "browserslist": "electron 1.6",
   "lint-staged": {
@@ -125,6 +126,11 @@
     ]
   },
   "devDependencies": {
+    "@types/react": "16.4.6",
+    "@types/react-dom": "^16.0.6",
+    "@types/react-redux": "^6.0.3",
+    "@types/react-router-dom": "^4.2.7",
+    "@types/react-router-redux": "^5.0.15",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.3",
     "babel-jest": "^23.0.0",
@@ -190,6 +196,7 @@
     "stylefmt": "^6.0.0",
     "stylelint": "^9.2.1",
     "stylelint-config-standard": "^18.2.0",
+    "typescript": "^2.9.2",
     "uglifyjs-webpack-plugin": "1.2.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.8.3",
@@ -208,8 +215,11 @@
     "electron-settings": "^3.2.0",
     "final-form": "^4.8.2",
     "font-awesome": "^4.7.0",
+    "formik": "^0.11.11",
     "history": "^4.7.2",
     "mui-datatables": "^2.0.0-beta-8",
+    "office-ui-fabric-core": "^9.6.0",
+    "office-ui-fabric-react": "^6.27.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-final-form": "^3.6.2",

@@ -1,21 +1,10 @@
-// @flow
-import { TYPES } from '../actions';
-
-export type counterStateType = {
-  +counter: number
-};
-
-type actionType = {
-  +type: string
-};
-
-export default function counter(state: number = 0, action: actionType) {
-  switch (action.type) {
-    case TYPES.INCREMENT_COUNTER:
-      return state + 1;
-    case TYPES.DECREMENT_COUNTER:
-      return state - 1;
-    default:
-      return state;
-  }
+import { increment, decrement } from '../actions/counter';
+export default function counter(state = 0, action) {
+    if (increment.test(action)) {
+        return state + 1;
+    }
+    else if (decrement.test(action)) {
+        return state - 1;
+    }
+    return state;
 }
