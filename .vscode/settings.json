@@ -1,11 +1,16 @@
 {
   "javascript.validate.enable": false,
   "flow.useNPMPackagedFlow": true,
+  "files.exclude": {
+    "**/*.js": { "when": "$(basename).ts" },
+    "**/**.jsx": { "when": "$(basename).tsx" },
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true
+  },
   "search.exclude": {
-    "**/*.js": { "when": "$(basename).tsx"},
-    "*.js": { "when": "$(basename).tsx"},
-    "*.jsx": { "when": "$(basename).tsx"},
-    "**/*.jsx": { "when": "$(basename).tsx"},
     ".git": true,
     ".eslintcache": true,
     "app/dist": true,

@@ -11,16 +11,16 @@ export default new EntitySchema({
     name: {
       type: 'text'
     },
-    email: {
+    nik: {
       type: 'text'
     },
-    isAdmin: {
-      type: 'boolean',
-      default: false
+    address: {
+      type: 'text',
+      nullable: true
     },
-    isDeleted: {
-      type: 'boolean',
-      default: false
+    class: {
+      type: 'text',
+      nullable: true
     },
     createDate: {
       type: 'datetime',

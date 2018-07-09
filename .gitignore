@@ -47,6 +47,11 @@ dist
 dll
 main.js
 main.js.map
+app/containers/**/*.jsx
+app/components/**/*.jsx
+app/reducers/**/*.js
+app/actions/**/*.js
+app/store/**/*.js
 
 .idea
 npm-debug.log.*

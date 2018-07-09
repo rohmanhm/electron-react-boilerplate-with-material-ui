@@ -43,7 +43,7 @@
     "test-all": "npm run lint && npm run flow && npm run build && npm run test && npm run test-e2e",
     "test-e2e": "cross-env NODE_ENV=test BABEL_DISABLE_CACHE=1 node --trace-warnings -r babel-register ./internals/scripts/RunTests.js e2e",
     "test-watch": "npm test -- --watch",
-    "clean:ts": "rm -rf app/actions/**/*.jsx app/actions/**/*.js app/reducers/**/*.jsx app/reducers/**/*.js app/store/**/*.jsx app/store/**/*.js app/components/**/*.jsx app/components/**/*.js app/containers/**/*.jsx app/containers/**/*.js"
+    "clean:ts": "rm -rf app/actions/**/*.js* app/actions/*.js* app/reducers/**/*.js* app/reducers/*.js* app/store/**/*.js* app/store/*.js* app/components/**/*.js* app/components/*.js* app/containers/**/*.js* app/containers/*.js*"
   },
   "browserslist": "electron 1.6",
   "lint-staged": {

@@ -25,7 +25,8 @@ export default function counter(state: TState, action: IActionWithPayload<any>) 
       return { ...state, ...{ isAdding: true }}
     case 'STOP_ADDING':
       return { ...state, ...{ isAdding: false }}
-    case 'ADD_USER':
+    case 'USER_ADD':
+      console.log('REDUCER USER_ADD', action.type, action.payload)
       const newUsers = state.users.push(action.payload)
       return { ...state, users: newUsers }
     case 'USERS_FETCH':
